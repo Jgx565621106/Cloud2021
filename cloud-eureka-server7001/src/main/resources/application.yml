@@ -1,0 +1,11 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  # 不向eureka server 注册自己
+    fetch-registry: false
+    service-url:   #  eureka server 的地址， 咱们单实例模式就写自己好了
+      defaultZone:  http://${eureka.instance.homename}:${server.port}/eureka/
