@@ -1,4 +1,4 @@
-package com.test.springcloud.config;
+package com.consultest.springcloud.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class ApplicaitonContextConfig {
+public class ApplicationContextConfig {
 
   @Bean
-  @LoadBalanced //使用@LoadBalanced注解赋予RestTemplete负载均衡的能力
+  @LoadBalanced
   public RestTemplate getRestTemplate() {
     return new RestTemplate();
   }
