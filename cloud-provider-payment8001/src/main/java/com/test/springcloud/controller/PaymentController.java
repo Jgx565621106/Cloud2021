@@ -4,6 +4,7 @@ import com.test.springcloud.eneties.CommonResult;
 import com.test.springcloud.eneties.Payment;
 import com.test.springcloud.service.PaymentService;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -63,5 +64,15 @@ public class PaymentController {
               + instance.getUri() + "\t");
     }
     return this.discoveryClient;
+  }
+
+  @GetMapping(value = "/payment/feign/timeout")
+  public String paymentFeignTimeout() {
+    try {
+      TimeUnit.SECONDS.sleep(3);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    return serverPort;
   }
 }
